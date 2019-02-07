@@ -1,81 +1,37 @@
-//user chose their character
+// user chose their character
 
-var userCharacters = $.makeArray($(".characters"));
-// var yourCharacter = [];
+var characters= {
+ "pride" : {
+  name: "Pride",
+  points: 120,
+  attack: 25,
+},
+
+  "lust" : {
+  name: "Lust",
+  points: 100,
+  attack: 20,
+},
+
+  "gluttony" : {
+  name: "Gluttony",
+  points: 80,
+  attack: 15,
+},
+
+"greed" : {
+  name: "Greed",
+  points: 60,
+  attack: 10,
+}
+}
 
 
+// $("#pridePts").html(pride.points)
+// $("#lustPts").html(lust.points)
+// $("#gluttonyPts").html(gluttony.points)
+// $("#greedPts").html(greed.points)
 
-$(userCharacters).on("click", function() {
-  yrCharacter();
-  defendCharacter();
+$(".characters").on("click", function() {
+  $(this).appendTo("#hero")
 })
-
-function yrCharacter() {
-  userCharacters.splice($(this), 1)
-  $(this).appendTo("#hero");
-  console.log("userCharacters_YR " + userCharacters)
-  // console.log("your character: " + yourCharacter);
-   //
-}
-
-function defendCharacter(){
-  userCharacters.splice($(this), 1)
-  $(this).appendTo("#defender");
-  console.log("userCharacters_Defend " + userCharacters)
-}
-
-// //
-// //   if (userCharacters.length == 4) {
-//     selectHero();
-// //   }
-// //     if (userCharacters.length < 4) {
-// //      selectDefender();
-// // }
-//
-//   // $(userCharacters).appendTo("#enemy")
-//
-//
-//
-//
-// function selectHero() {
-//   $(userCharacters).click(function() {
-//     // if (userCharacters.length == 4) {
-//
-//     //removes character from array
-//     // userCharacters = userCharacters.splice($.inArray($(this), userCharacters), 1);
-//     yourCharacter = $(userCharacters).slice($.inArray($(this), userCharacters), 1);
-//     $(this).appendTo("#hero")
-//
-//     console.log("user characters: " + userCharacters);
-//     // }
-//    if (yourCharacter.length == 1){
-//       $(this).appendTo("#defender")
-//
-// }
-//
-//
-//
-//
-//
-// // return yourCharacter;
-//
-//
-// })
-// }
-//
-//
-// // //user chose their defender
-// // function selectDefender() {
-// // $(userCharacters).on("click",function() {
-// //   $(this).appendTo("#defender")
-// //   userCharacters = userCharacters.splice($.inArray($(this),userCharacters), 1);
-// //   console.log("defender!")
-// //   return userCharacters;
-// // })
-// // }
-//
-// //the other the two characters become avilable for attack
-//
-// //attack button subtract points from your character and Defender
-//
-// //winner is selected
