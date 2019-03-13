@@ -61,17 +61,17 @@ $("#greedName").html(characters[3].name)
 $("#greedPts").html(characters[3].points)
 
 
-var userCharacters = $.makeArray($(".characters"));
+// var userCharacters = $.makeArray($(".characters"));
 
 $(".characters").on("click", function() {
   // $(this).appendTo("#hero");
 
   if($("#hero .characters").length==0){
     yourCharacter($(this));
-    var characterName = $(this).children("p").first().text();
+    characterName = $(this).children("p").first().text();
+console.log("charactrN " + characterName)
+    removeCharacterFromArray(characterName);
 
-    var character_index = characters.findIndex(x => x.name == characterName);
-    characters.splice(character_index, 1);
     // console.log(characters);
     for(key in characters){
       if(characters[key].name == "Pride"){
@@ -85,33 +85,61 @@ $(".characters").on("click", function() {
       }
     }
   }
-
 })
 
 function yourCharacter(n) {
   $(n).appendTo("#hero");
-  console.log(n)
-// for (key in characters){
-//   if (n == characters[key])
-// }
-//   urCharacter = $(characters).splice($(n), 1);
-//   console.log(urCharacter)
-urEnemy = $(userCharacters).slice($.inArray($(this), userCharacters), 1);
+  // urEnemy = $(userCharacters).slice($.inArray($(this), userCharacters), 1);
+}
+
+function removeCharacterFromArray(n){
+  var character_index = characters.findIndex(x => x.name == n);
+  fightingChar = characters.splice(character_index, 1);
+}
+function removeDefenderFromArray(n){
+  var character_index = characters.findIndex(x => x.name == n);
+  fightingDefender = characters.splice(character_index, 1);
 }
 
 $("body").on("click", "#enemy .characters", function(){
-  yourEnemies($(this));
+  if($("#defender .characters").length==0){
+    yourEnemies($(this));
+    var defenderName = $(this).children("p").first().text();
+    console.log("defender " + defenderName)
+    removeDefenderFromArray(defenderName);
+  }
 });
 
 
 function yourEnemies(n){
-  if($("#defender .characters").length==0){
     $(n).appendTo("#defender");
+}
+
+function attackGame(){
+  fightingDefender[0].points -= fightingChar[0].attack
+  fightingChar[0].points -= fightingDefender[0].enemyAttackBack
+  $("#gameOver").html("You attacked " + fightingDefender[0].name + " for " + fightingChar[0].attack + " damage." + "<br>"
+                      +fightingDefender[0].name + " attacked you back for " + fightingDefender[0].enemyAttackBack + " damage.")
+fightingChar[0].attack += 10;
+$("#" + fightingDefender[0].name.toLowerCase()+ "Pts").html(fightingDefender[0].points)
+$("#" + fightingChar[0].name.toLowerCase()+ "Pts").html(fightingChar[0].points)
+
+  console.log("My Char" + fightingChar[0].points)
+  console.log("My Enemy" + fightingDefender[0].points)
+  if(fightingChar[0].points < 0){
+    alert("Lose")
+  }
+  if (fightingDefender[0].points < 0){
+    $("#gameOver").html("You have defeated " + fightingDefender[0].name + ", you can choose to fight another enemy.")
+    $("#defender .characters").remove();
+  } if($("#defender .characters").length==0){
+    $("#gameOver").html("No enemy here")
   }
 }
 
-
-
+$("#attack").on("click", function(){
+  attackGame();
+})
 
 // $(userCharacters).on("click", function() {
 //   $(this).appendTo("#hero")
