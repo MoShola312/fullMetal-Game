@@ -60,7 +60,7 @@ $("#greedImage").attr("src", characters[3].image)
 $("#greedName").html(characters[3].name)
 $("#greedPts").html(characters[3].points)
 
-
+$("#reset").hide();
 // var userCharacters = $.makeArray($(".characters"));
 
 $(".characters").on("click", function() {
@@ -132,15 +132,86 @@ $("#" + fightingChar[0].name.toLowerCase()+ "Pts").html(fightingChar[0].points)
   if (fightingDefender[0].points < 0){
     $("#gameOver").html("You have defeated " + fightingDefender[0].name + ", you can choose to fight another enemy.")
     $("#defender .characters").remove();
-  } if($("#defender .characters").length==0){
-    $("#gameOver").html("No enemy here")
+    gameOver();
   }
+  // if($("#defender .characters").length==0){
+  //   $("#gameOver").html("No enemy here")
+  // }
 }
 
 $("#attack").on("click", function(){
   attackGame();
+
 })
 
+// $("#reset").on("click", function(){
+//   reset();
+//
+// })
+function gameOver(){
+  if($("#enemy .characters").length == 0){
+    $("#gameOver").text("You Won!!! GAME OVER")
+    $("#attack").hide();
+    // $("#reset").show();
+  }
+}
+
+// function reset(){
+//   var characters= [
+//    {
+//     name: "Pride",
+//     points: 120,
+//     attack: 8,
+//     image: "pride.png",
+//     enemyAttackBack: 15
+//   },
+//
+//      {
+//     name: "Lust",
+//     points: 100,
+//     attack: 14,
+//     image: "lust.png",
+//     enemyAttackBack:5
+//   },
+//
+//      {
+//     name: "Gluttony",
+//     points: 150,
+//     attack: 8,
+//     image: "gluttony.png",
+//     enemyAttackBack: 20
+//   },
+//
+//    {
+//     name: "Greed",
+//     points: 180,
+//     attack: 7,
+//     image: "greed.png",
+//     enemyAttackBack: 25
+//   }
+//   ]
+//
+//   var urCharacter;
+//   var urEnemy;
+//
+//
+//
+//   $("#pridePts").html(characters[0].points)
+//   $("#prideName").html(characters[0].name)
+//   $("#prideImage").attr("src", characters[0].image)
+//   $("#lustPts").html(characters[1].points)
+//   $("#lustName").html(characters[1].name)
+//   $("#lustImage").attr("src", characters[1].image)
+//
+//
+//   $("#gluttonyPts").html(characters[2].points)
+//   $("#gluttonyName").html(characters[2].name)
+//   $("#gluttonyImage").attr("src", characters[2].image)
+//
+//   $("#greedImage").attr("src", characters[3].image)
+//   $("#greedName").html(characters[3].name)
+//   $("#greedPts").html(characters[3].points)
+// }
 // $(userCharacters).on("click", function() {
 //   $(this).appendTo("#hero")
 
