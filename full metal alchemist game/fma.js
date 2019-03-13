@@ -65,7 +65,26 @@ var userCharacters = $.makeArray($(".characters"));
 
 $(".characters").on("click", function() {
   // $(this).appendTo("#hero");
-  yourCharacter($(this));
+
+  if($("#hero .characters").length==0){
+    yourCharacter($(this));
+    var characterName = $(this).children("p").first().text();
+
+    var character_index = characters.findIndex(x => x.name == characterName);
+    characters.splice(character_index, 1);
+    // console.log(characters);
+    for(key in characters){
+      if(characters[key].name == "Pride"){
+        $("#prideName").parent().appendTo("#enemy");
+      } else if (characters[key].name== "Lust") {
+        $("#lustName").parent().appendTo("#enemy");
+      } else if (characters[key].name== "Gluttony") {
+        $("#gluttonyName").parent().appendTo("#enemy");
+      } else if (characters[key].name== "Greed") {
+        $("#greedName").parent().appendTo("#enemy");
+      }
+    }
+  }
 
 })
 
@@ -78,9 +97,18 @@ function yourCharacter(n) {
 //   urCharacter = $(characters).splice($(n), 1);
 //   console.log(urCharacter)
 urEnemy = $(userCharacters).slice($.inArray($(this), userCharacters), 1);
+}
+
+$("body").on("click", "#enemy .characters", function(){
+  yourEnemies($(this));
+});
 
 
-}console.log(urEnemy)
+function yourEnemies(n){
+  if($("#defender .characters").length==0){
+    $(n).appendTo("#defender");
+  }
+}
 
 
 
