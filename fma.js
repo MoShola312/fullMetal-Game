@@ -154,13 +154,15 @@ $("#" + fightingChar[0].name.toLowerCase()+ "Pts").html(fightingChar[0].points)
     $("#defender .characters").remove();
     gameOver();
   }
-  // if($("#defender .characters").length==0){
-  //   $("#gameOver").html("No enemy here")
-  // }
+
 }
 
 $("#attack").on("click", function(){
-  attackGame();
+  if($("#defender .characters").length==0){
+    $("#gameOver").html("No enemy here")
+  } else {
+    attackGame();
+  }
 
 });
 
