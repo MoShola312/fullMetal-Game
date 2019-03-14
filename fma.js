@@ -149,7 +149,7 @@ $("#" + fightingChar[0].name.toLowerCase()+ "Pts").html(fightingChar[0].points)
     $("#attack").hide();
   }
   //if user wins, it removes the defender
-  if (fightingDefender[0].points < 0){
+  if (fightingDefender[0].points <= 0){
     $("#gameOver").html("You have defeated " + fightingDefender[0].name + ", you can choose to fight another enemy.")
     $("#defender .characters").remove();
     gameOver();
@@ -160,7 +160,7 @@ $("#" + fightingChar[0].name.toLowerCase()+ "Pts").html(fightingChar[0].points)
 $("#attack").on("click", function(){
   if($("#defender .characters").length==0){
     $("#gameOver").html("No enemy here")
-  } else {
+  } else{
     attackGame();
   }
 
@@ -174,7 +174,7 @@ $("#reset").on("click", function(){
 //checks to see if the user has won the game
 //hides attack button and replace it with reset button
 function gameOver(){
-  if($("#enemy .characters").length == 0 && fightingChar[0].points > fightingDefender[0].points){
+  if($("#enemy .characters").length === 0){
     $("#gameOver").text("You Won!!! GAME OVER")
     $("#attack").hide();
     $("#reset").show();
