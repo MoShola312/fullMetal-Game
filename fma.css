@@ -19,4 +19,30 @@ img {
 
 #enemy{
   display:flex;
+
+}
+
+#enemy .characters{
+  background: red;
+}
+.title{
+  font-weight: bold;
+  font-size: 13pt;
+  font-family: Arial;
+
+}
+h1{
+  /* text-align: justify; */
+  text-indent: 5em;
+}
+
+body {
+  background-image:url("FullMetalAbril.png");
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  background-size: cover;
+  height: inherit;
+
+
+
 }

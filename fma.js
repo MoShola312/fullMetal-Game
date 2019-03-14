@@ -34,10 +34,6 @@ var characters= [
 }
 ]
 
-var urCharacter;
-var urEnemy;
-
-
 
 $("#pridePts").html(characters[0].points)
 $("#prideName").html(characters[0].name)
@@ -69,7 +65,7 @@ $(".characters").on("click", function() {
   if($("#hero .characters").length==0){
     yourCharacter($(this));
     characterName = $(this).children("p").first().text();
-console.log("charactrN " + characterName)
+    console.log("charactrN " + characterName)
     removeCharacterFromArray(characterName);
 
     // console.log(characters);
@@ -127,7 +123,9 @@ $("#" + fightingChar[0].name.toLowerCase()+ "Pts").html(fightingChar[0].points)
   console.log("My Char" + fightingChar[0].points)
   console.log("My Enemy" + fightingDefender[0].points)
   if(fightingChar[0].points < 0){
-    alert("Lose")
+    $("#gameOver").text("You Lose");
+    $("#reset").show();
+    $("#attack").hide();
   }
   if (fightingDefender[0].points < 0){
     $("#gameOver").html("You have defeated " + fightingDefender[0].name + ", you can choose to fight another enemy.")
@@ -145,7 +143,7 @@ $("#attack").on("click", function(){
 })
 
 $("#reset").on("click", function(){
-  reset();
+  location.reload();
 
 })
 function gameOver(){
@@ -154,8 +152,4 @@ function gameOver(){
     $("#attack").hide();
     $("#reset").show();
   }
-}
-
-function reset(){
-  location.reload();
 }
