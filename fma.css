@@ -1,5 +1,6 @@
 img {
-  width: 100px;
+  width: 100%;
+  height: auto;
 }
 
 .container {
@@ -33,7 +34,7 @@ img {
 }
 h1{
   /* text-align: justify; */
-  text-indent: 5em;
+  text-align: center;
 }
 
 body {
@@ -41,8 +42,11 @@ body {
   background-repeat: no-repeat;
   /* background-position: center; */
   background-size: cover;
-  height: inherit;
-
-
-
+  height: auto;
+}
+/* Use a media query to add a breakpoint at 800px: */
+@media screen and (max-width: 800px) {
+  .left, .main, .right {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
 }
