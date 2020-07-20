@@ -38,11 +38,11 @@ h1{
 }
 
 body {
-  background-image:url("FullMetalAbril.png");
+/*   background-image:url("FullMetalAbril.png");
   background-repeat: no-repeat;
-  /* background-position: center; */
   background-size: cover;
-  height: auto;
+  height: auto; */
+  background-color:  rgb(234,217,170)
 }
 /* Use a media query to add a breakpoint at 800px: */
 @media screen and (max-width: 800px) {
