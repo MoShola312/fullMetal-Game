@@ -1,5 +1,5 @@
-# fullMetal-Game
-FullMetal Alchemist theme fighting game created using jQuery
+# FullMetal Alchemist RPG
+FullMetal Alchemist theme fighting game created using jQuery.
 
 # How to Play
 
