@@ -1,6 +1,7 @@
 # fullMetal-Game
 FullMetal Alchemist theme fighting game created using jQuery
-##Rules
+
+# Rules
 
 
-##How to Play
+# How to Play
