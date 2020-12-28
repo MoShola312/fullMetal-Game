@@ -39,4 +39,9 @@ FullMetal Alchemist theme fighting game created using jQuery.
   * A winning player must pick their characters wisely by first fighting an enemy with low `Counter Attack Power`. This will allow them to grind `Attack Power` and to take on enemies before they lose all of their `Health Points`. 
 
 
+# Your purpose or reason for doing this project
+I wanted to create a game using jQuery.
+
+# The tools used in this project
+The tools used to create this game are jQuery, HTML, CSS, and DOM maniputlation.
 
